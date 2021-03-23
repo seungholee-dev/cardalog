@@ -48,7 +48,7 @@
                     <a href="{% url 'logout' %}" class="btn btn-sm btn-info" role="button">Log Out</a>
                 {% else %}
                     <form class="form-inline">
-                        <a href="#" class="btn btn-sm btn-success mr-3" role="button">Sign Up</a>
+                        <a href="{% url 'register' %}" class="btn btn-sm btn-success mr-3" role="button">Sign Up</a>
                         <a href="{% url 'login' %}" class="btn btn-sm btn-info" role="button">Log In</a>
                     </form>
                 {% endif %}
