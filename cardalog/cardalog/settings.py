@@ -101,6 +101,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Where to redirect user after logging in
+LOGIN_REDIRECT_URL = 'cardalog-home'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
