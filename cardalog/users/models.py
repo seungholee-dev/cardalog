@@ -7,6 +7,7 @@ from django.dispatch import receiver
 class Profile(models.Model):
     BASIC = 1
     PREMIUM = 2
+    
     PLAN = (
         (BASIC, "Basic"),
         (PREMIUM, "PREMIUM")
