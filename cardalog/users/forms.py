@@ -2,12 +2,13 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.db import models
 from django import forms
+from django_countries.fields import CountryField
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
     birth_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
-    # + country
-    
+    gender = forms.ChoiceField(choices=[('M', "Male"), ('F', 'Female')])
+    country = CountryField().formfield()
 
     class Meta:
         model = User
