@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django_countries.fields import CountryField
+from django.utils import timezone
 
 # Profile Model
 class Profile(models.Model):
@@ -10,10 +12,15 @@ class Profile(models.Model):
     
     PLAN = (
         (BASIC, "Basic"),
-        (PREMIUM, "PREMIUM")
+        (PREMIUM, "Premium")
     )
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    country = models.CharField(default='South Korea', max_length=30, blank=False)
+    first_name = models.CharField(max_length=30, blank=True)
+    last_name = models.CharField(max_length=30, blank=True)
+    gender = models.BooleanField(default=True)
+    country = CountryField(blank=True)
+    birth_date = models.DateField(default=timezone.now)
+    join_date = models.DateField(default=timezone.now)
     plan = models.PositiveSmallIntegerField(default=1, choices=PLAN, null=False, blank=False)
 
     def __str__(self):

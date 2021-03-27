@@ -7,7 +7,7 @@ from django_countries.fields import CountryField
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
     birth_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
-    gender = forms.ChoiceField(choices=[('M', "Male"), ('F', 'Female')])
+    gender = forms.ChoiceField(choices=[(True, "Male"), (False, 'Female')])
     country = CountryField().formfield()
 
     class Meta:
