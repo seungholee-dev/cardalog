@@ -1,5 +1,5 @@
 from .forms import UserRegisterForm
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.contrib import messages
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
@@ -26,3 +26,8 @@ class SignUpView(CreateView):
 			messages.success(request, f'Your account has been created! You are now able to log in!')
 
 		return redirect('login')
+
+	# Dealing with Get requests
+	def get(self, request, *args, **kwargs):
+		form = UserRegisterForm()
+		return render(request, 'registration/register.html', {'form': form})
