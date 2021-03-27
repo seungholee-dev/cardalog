@@ -4,6 +4,8 @@ from django.db import models
 from django import forms
 from django_countries.fields import CountryField
 
+
+# User registration form with some custom fields
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
     birth_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
