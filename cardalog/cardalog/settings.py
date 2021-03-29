@@ -33,7 +33,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'core.apps.CoreConfig',
     'cards.apps.CardsConfig',
-    'cards.apps.SetsConfig',
+    'sets.apps.SetsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
