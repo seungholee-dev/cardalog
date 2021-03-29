@@ -43,6 +43,7 @@
                 </li>
             </ul>
             
+            <!-- LogOut / SignUp/ Login Button based on user auth state -->
             <div>
                 {% if user.is_authenticated %}
                     <a href="{% url 'logout' %}" class="btn btn-sm btn-info" role="button">Log Out</a>
@@ -56,6 +57,7 @@
         </div>
     </nav>
 
+    <!-- Flash Message -->
     {% if messages %}
        {% for message in messages %}
           <div class="row justify-content-end">
