@@ -27,12 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'core.apps.CoreConfig',
+    'cards.apps.CardsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

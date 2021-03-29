@@ -1,14 +1,18 @@
 from .forms import UserRegisterForm
+from django.contrib.auth.views import LoginView
+from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
 from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
+from django.contrib.auth.forms import AuthenticationForm
 from django.views.generic.edit import CreateView
 
+# Custom Sign Up View
 class SignUpView(CreateView):
 	template_name = 'registration/register.html'
 	success_url = reverse_lazy('login')
 	form_class = UserRegisterForm
-	success_message = "Your profile was created successfully"
 
 	# Dealing with Post requests
 	def post(self, request, *args, **kwargs):
@@ -16,7 +20,7 @@ class SignUpView(CreateView):
 
 		if form.is_valid():
 			user = form.save()
-			user.refresh_from_db()
+			user.refresh_from_db() # This brings the profile from db
 			user.profile.first_name = form.cleaned_data.get('first_name')
 			user.profile.last_name = form.cleaned_data.get('last_name')
 			user.profile.birth_date = form.cleaned_data.get('birth_date')
@@ -31,3 +35,9 @@ class SignUpView(CreateView):
 	def get(self, request, *args, **kwargs):
 		form = UserRegisterForm()
 		return render(request, 'registration/register.html', {'form': form})
+
+# # Custom LoginView
+class MyLoginView(SuccessMessageMixin, LoginView):
+	template_name = 'registration/login.html'
+	success_url = reverse_lazy('cardalog-home')
+	success_message = "Welcome back"
