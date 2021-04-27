@@ -5,6 +5,6 @@ from .views import (
 
 urlpatterns = [
     path('', HomeView.as_view(), name='cardalog-home'),
-    # path('sets/', include('sets.urls')),
+    path('sets/', include('sets.urls')),
     path('users/', include('users.urls')),
 ]
