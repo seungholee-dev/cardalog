@@ -1,15 +1,26 @@
 {% extends 'index.html' %}
 
 {% block main_content %}
-<h1>Sets</h1>
-{% if sets %}
-    Count: {{ sets|length }}
 
-    {% for set in sets %}
-        <h2>{{ set.title }}</h2>
-    {% endfor %}
-{% else %}
-    <p>Oopsy! You have no sets!</p>
-{% endif %}
+    <h1>Sets</h1>
+
+    {% if sets %}
+        Count: {{ sets|length }}
+
+        {% for set in sets %}
+            
+            <div class="card text-white border-info bg-dark mb-3" style="max-width: 18rem;">
+            <div class="card-header border-info">{{ set.category }}</div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ set.title }}</h5>
+                    <p class="card-text">{{set.description}}</p>
+                </div>
+                {% comment %} <h2><a href="{% url 'set-detail' set.id %}">Details</a></h2> {% endcomment %}
+            </div>
+        {% endfor %}
+
+    {% else %}
+        <p>Oopsy! You have no sets!</p>
+    {% endif %}
 
 {% endblock %}

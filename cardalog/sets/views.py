@@ -5,4 +5,4 @@ from django.views.generic.list import ListView
 class SetListView(ListView):
     model = Set
     template_name = "set_list.html"
-    
+    context_object_name = 'sets'
