@@ -15,7 +15,7 @@
                     <h5 class="card-title">{{ set.title }}</h5>
                     <p class="card-text">{{set.description}}</p>
                 </div>
-                {% comment %} <h2><a href="{% url 'set-detail' set.id %}">Details</a></h2> {% endcomment %}
+                <a href="{% url 'set-detail' set.id %}">Details</a>
             </div>
         {% endfor %}
 
