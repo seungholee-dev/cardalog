@@ -7,10 +7,13 @@
     Count: {{ object.card_set.all|length }}
 
     {% for card in object.card_set.all %}
-        <div>
-            <div>{{ card.term }}</div>
-            <div>{{ card.definition }}</div>
-            <div>{{ card.example }}</div>
+        <div class="card col-md-4 text-center">
+            <div class="card-body">
+                <h5 class="card-title">{{ card.term }}</h5>
+                <p class="card-text">{{ card.definition }}</p>
+                <p class="card-text">{{ card.example }}</p>
+                <p class="card-text"><small class="text-muted">{{ card.update_date }}</small></p>
+            </div>
         </div>
     {% endfor %}
 
