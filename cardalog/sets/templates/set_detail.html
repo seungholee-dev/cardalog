@@ -4,9 +4,9 @@
 
     <h1>{{ object.title }}</h1>
 
-    Count: {{ card_list|length }}
+    Count: {{ object.card_set.all|length }}
 
-    {% for card in card_list %}
+    {% for card in object.card_set.all %}
         <div>
             <div>{{ card.term }}</div>
             <div>{{ card.definition }}</div>
