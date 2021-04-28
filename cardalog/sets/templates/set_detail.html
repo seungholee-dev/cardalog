@@ -4,4 +4,11 @@
 
     <h1>{{ object.title }}</h1>
 
+    Count: {{ card_list|length }}
+
+    {% for card in card_list %}
+        
+        <div>{{ card.term }}</div>
+    {% endfor %}
+
 {% endblock %}
