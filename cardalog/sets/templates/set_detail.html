@@ -7,8 +7,11 @@
     Count: {{ card_list|length }}
 
     {% for card in card_list %}
-        
-        <div>{{ card.term }}</div>
+        <div>
+            <div>{{ card.term }}</div>
+            <div>{{ card.definition }}</div>
+            <div>{{ card.example }}</div>
+        </div>
     {% endfor %}
 
 {% endblock %}

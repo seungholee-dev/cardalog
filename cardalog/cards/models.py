@@ -8,7 +8,7 @@ class Card(models.Model):
     example = models.CharField(max_length=150, blank=False)
     create_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
-    card_set = models.ForeignKey(Set, on_delete=models.CASCADE)
+    included_set = models.ForeignKey(Set, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.term
