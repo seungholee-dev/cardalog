@@ -16,6 +16,7 @@
                     <p class="card-text">{{set.description}}</p>
                 </div>
                 <a href="{% url 'set-detail' set.id %}">Details</a>
+                <a href="{% url 'set-delete' set.id%}" class="btn"><i class="fa fa-trash"></i></a>
             </div>
         {% endfor %}
 

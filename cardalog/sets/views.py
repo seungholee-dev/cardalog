@@ -25,8 +25,9 @@ class SetCreateView(CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
-# class SetDeleteView(DeleteView):
-#     model = Set
-#     success_url = '/sets/list/'
+class SetDeleteView(DeleteView):
+    model = Set
+    template_name = "set_delete_confirm.html"
+    success_url = reverse_lazy('set-list')
     
     
