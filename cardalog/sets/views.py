@@ -11,6 +11,8 @@ class SetListView(ListView):
     template_name = "set_list.html"
     context_object_name = 'sets'
 
+    
+
 class SetDetailView(DetailView):
     model = Set
     template_name = "set_detail.html"
@@ -29,5 +31,5 @@ class SetDeleteView(DeleteView):
     model = Set
     template_name = "set_delete_confirm.html"
     success_url = reverse_lazy('set-list')
-    
-    
+
+#TODO: SetUpdateView

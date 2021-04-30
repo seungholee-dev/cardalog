@@ -11,5 +11,10 @@ class Set(models.Model):
     create_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
     
+    class Meta:
+        ordering = ['-update_date']
+
     def __str__(self):
         return self.title
+
+    
