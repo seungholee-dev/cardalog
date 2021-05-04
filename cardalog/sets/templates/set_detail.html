@@ -3,6 +3,7 @@
 {% block main_content %}
 
     <h1>{{ object.title }}</h1>
+    <a class="btn btn-info" href="{% url 'set-update' object.id %}"><i class="glyphicon glyphicon-align-left"></i> Edit</a>
 
     Count: {{ object.card_set.all|length }}
 
@@ -16,5 +17,7 @@
             </div>
         </div>
     {% endfor %}
+
+    
 
 {% endblock %}
