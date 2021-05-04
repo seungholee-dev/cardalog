@@ -29,7 +29,6 @@ class SetCreateView(CreateView):
 
 class SetDeleteView(DeleteView):
     model = Set
-    template_name = "set_delete_confirm.html"
     success_url = reverse_lazy('set-list')
 
 class SetUpdateView(SuccessMessageMixin, UpdateView):
