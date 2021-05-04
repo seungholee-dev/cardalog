@@ -1,7 +1,12 @@
-// suppose the `id` attribute of element is `message_container`.
-var flashMessage = document.getElementById("flash-message");
+// FlashMessage Dimiss timeout (3secs)
+let flashMessage = document.getElementById("flash-message");
 
 setTimeout(function() { 
    flashMessage.style.display = "none"; 
 }, 3000);
-// Timeout is 3 sec, you can change it
+
+// Delete confirm for Set
+function deleteConfirmPopUp() {
+    let result = confirm('Are you sure you want to delete?');
+    return result;
+};

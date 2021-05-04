@@ -7,32 +7,30 @@
     {% if sets %}
         Count: {{ sets|length }}
 
-        {% comment %} {% for set in sets %} {% endcomment %}
-
-            <div class="row">
-                {% for set in sets %}
-                <div class="col-lg-3 col-sm-6 col-xs-12">
-                    <div class="card text-white border-info bg-dark mb-3">
-                        <div class="card-header border-info">{{ set.category }}</div>
-                        <div class="card-body">
-                            <h5 class="card-title">{{ set.title }}</h5>
-                            <p class="card-text">{{ set.description }}</p>
-                        </div>
-                        <form method="post" action="{% url 'set-delete' set.id %}">
-                            {% csrf_token %}
-                            <button class="btn-danger" type="submit">Delete</button>
-                        </form>
-                        <form action="{% url 'set-detail' set.id %}">
-                            <button class="btn-primary" type="submit">Detail</button>
-                        </form>
+        <div class="row">
+            {% for set in sets %}
+            <div class="col-lg-3 col-sm-6 col-xs-12">
+                <div class="card text-white border-info bg-dark mb-3">
+                    <div class="card-header border-info">{{ set.category }}</div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ set.title }}</h5>
+                        <p class="card-text">{{ set.description }}</p>
                     </div>
+                    <form method="post" action="{% url 'set-delete' set.id %}" >
+                        {% csrf_token %}
+                        <button class="btn-danger" type="submit" onclick="return deleteConfirmPopUp();">Delete</button>
+                    </form>
+                    <form action="{% url 'set-detail' set.id %}">
+                        <button class="btn-primary" type="submit">Detail</button>
+                    </form>
                 </div>
-                {% if forloop.counter|divisibleby:4 %}
             </div>
-            <div class="row">
-                {% endif %}
-                {% endfor %}
-            </div>
+            {% if forloop.counter|divisibleby:4 %}
+        </div>
+        <div class="row">
+            {% endif %}
+            {% endfor %}
+        </div>
 
     {% else %}
         <p>Oopsy! You have no sets!</p>
