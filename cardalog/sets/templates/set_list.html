@@ -15,8 +15,12 @@
                     <h5 class="card-title">{{ set.title }}</h5>
                     <p class="card-text">{{set.description}}</p>
                 </div>
-                <a href="{% url 'set-detail' set.id %}" class="btn-primary">Details</a>
-                <a href="{% url 'set-delete' set.id%}" class="btn-danger">Delete</a>
+                <a href="{% url 'set-detail' set.id %}" class="btn-primary">Details</a>                
+                <a href="{% url 'set-delete' set.id %}" class="btn-danger">Delete</a>
+                <form method="post" action="{% url 'set-delete' set.id %}">
+                    {% csrf_token %}
+                    <input type="submit" value="Delete">
+                </form>
             </div>
         {% endfor %}
 
