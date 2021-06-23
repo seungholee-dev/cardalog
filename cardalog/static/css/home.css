@@ -2,6 +2,14 @@ body {
     background-color: #BBBBBB;
 }
 
+#home-profile-img {
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	border: 5px solid skyblue;
+	
+}
+
 .float{
 	position:fixed;
 	width:60px;

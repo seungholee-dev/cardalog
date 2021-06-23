@@ -43,9 +43,10 @@
                 </li>
             </ul>
             
-            <!-- LogOut / SignUp/ Login Button based on user auth state -->
+            <!-- Profile / LogOut / SignUp/ Login Button based on user auth state -->
             <div>
                 {% if user.is_authenticated %}
+                    <img id="home-profile-img" src="{% static 'img/male.png' %}" alt='Home Profile Img'>
                     <a href="{% url 'logout' %}" class="btn btn-sm btn-info" role="button">Log Out</a>
                 {% else %}
                     <form class="form-inline">
