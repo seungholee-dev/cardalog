@@ -44,10 +44,15 @@
             </ul>
             
             <!-- Profile / LogOut / SignUp/ Login Button based on user auth state -->
-            <div>
+            <div class='make-relative'>
                 {% if user.is_authenticated %}
                     <img id="home-profile-img" src="{% static 'img/male.png' %}" alt='Home Profile Img'>
-                    <a href="{% url 'logout' %}" class="btn btn-sm btn-info" role="button">Log Out</a>
+                    <ul id='main-menu'>
+                        <li>My Page</li>
+                        <li>Settings</li>
+                        <li><a href="{% url 'logout' %}" class="btn btn-sm btn-info" role="button">Log Out</a></li>
+                    </ul>
+                    
                 {% else %}
                     <form class="form-inline">
                         <a href="{% url 'register' %}" class="btn btn-sm btn-success mr-3" role="button">Sign Up</a>

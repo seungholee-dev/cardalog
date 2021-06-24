@@ -10,3 +10,15 @@ function deleteConfirmPopUp() {
     let result = confirm('Are you sure you want to delete?');
     return result;
 };
+
+let menu = document.getElementById("main-menu");
+// Make main-menu toggle by clicking the profile img
+document.getElementById("home-profile-img").addEventListener('click', function (e) {
+    if (menu.style.display == "") {
+        menu.style.display = "none";
+        // button.innerHTML = "Show Menu";
+    } else {
+        menu.style.display = "";
+        // button.innerHTML = "Hide Menu";
+    }
+})
