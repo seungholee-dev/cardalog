@@ -17,9 +17,9 @@ class UserRegisterForm(UserCreationForm):
         model = User
         fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2', 'birth_date', 'gender', 'country']
 
-# class UserUpdateForm(forms.ModelForm):
-#     email = forms.EmailField()
-
-#     class Meta:
-#         model = User
-#         fields = ['image', 'username', 'email']
+class UserUpdateForm(forms.ModelForm):
+    email = forms.EmailField()
+    image = forms.ImageField()
+    class Meta:
+        model = User
+        fields = ['image', 'email']

@@ -4,6 +4,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django_countries.fields import CountryField
 from django.utils import timezone
+from PIL import Image
 
 # Profile Model
 class Profile(models.Model):
@@ -26,6 +27,17 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+    # Overriding profile.save() method because image needed to be preprocessed
+    def save(self, *args, **kwargs):
+        super(Profile, self).save(*args, **kwargs)
+
+        img = Image.open(self.image.path)
+        
+        if img.height > 300 or img.width > 300:
+            output_size = (300, 300)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):

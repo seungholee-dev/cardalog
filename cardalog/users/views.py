@@ -1,5 +1,5 @@
 from django.contrib.auth import login
-from .forms import UserRegisterForm
+from .forms import UserRegisterForm, UserUpdateForm
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -44,26 +44,20 @@ class MyLoginView(SuccessMessageMixin, LoginView):
 	success_url = reverse_lazy('cardalog-home')
 	success_message = "Welcome back"
 
-# Profile view
-# @login_required
-# def profile(request):
-# 	if request.method == 'POST':
-#         u_form = UserUpdateForm(request.POST, instance=request.user) # Instance will tell which instance we are working on
-#         p_form = ProfileUpdateForm(request.POST, 
-#                                    request.FILES, 
-#                                    instance=request.user.profile)
-#         if u_form.is_valid() and p_form.is_valid():
-#             u_form.save()
-#             p_form.save()
-#             messages.success(request, f'Your account has been updated!')
-#             return redirect('profile')
-#     else:
-#         u_form = UserUpdateForm(instance=request.user) # Instance will bring current user data
-#         p_form = ProfileUpdateForm(instance=request.user.profile)
-
-#     context = {
-#         'u_form': u_form,
-#         'p_form': p_form
-#     }
+# Profile View (My Page)
+@login_required
+def abc(request):
+	if request.method == 'POST':
+		u_form = UserUpdateForm(request.POST, instance=request.user) # Instance will tell which instance we are working on
+		if u_form.is_valid():
+			u_form.save()
+			messages.success(request, f'Your account has been updated!')
+			return redirect('cardalog-home')
+	else:
+		u_form = UserUpdateForm(instance=request.user) # Instance will bring current user data
 	
-# 	return render(request, 'users/profile.html', context)
+	context = {
+        'u_form': u_form,
+    }
+	
+	return render(request, 'profile.html', context)

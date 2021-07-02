@@ -130,3 +130,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
+# Uploaded file directory where it will be saved (Uploading image etc)
+# You need to add this to urls.py according to the Django document
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# URL for browser how to access that Media above
+MEDIA_URL = '/media/'

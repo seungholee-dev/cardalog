@@ -46,9 +46,9 @@
             <!-- Profile / LogOut / SignUp/ Login Button based on user auth state -->
             <div class='make-relative'>
                 {% if user.is_authenticated %}
-                    <img id="home-profile-img" src="{% static 'img/male.png' %}" alt='Home Profile Img'>
+                    <img id="home-profile-img" src="{{ user.image }}" alt='Home Profile Img'>
                     <ul id='main-menu'>
-                        <li>My Page</li>
+                        <li><a href="{% url 'profile' %}" class="btn btn-sm btn-info" role="button">Profile</a></li>
                         <li>Settings</li>
                         <li><a href="{% url 'logout' %}" class="btn btn-sm btn-info" role="button">Log Out</a></li>
                     </ul>
