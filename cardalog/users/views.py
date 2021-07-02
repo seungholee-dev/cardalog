@@ -46,7 +46,7 @@ class MyLoginView(SuccessMessageMixin, LoginView):
 
 # Profile View (My Page)
 @login_required
-def abc(request):
+def profile(request):
 	if request.method == 'POST':
 		u_form = UserUpdateForm(request.POST, instance=request.user) # Instance will tell which instance we are working on
 		if u_form.is_valid():
