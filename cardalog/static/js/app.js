@@ -14,11 +14,11 @@ function deleteConfirmPopUp() {
 let menu = document.getElementById("main-menu");
 // Make main-menu toggle by clicking the profile img
 document.getElementById("home-profile-img").addEventListener('click', function (e) {
-    if (menu.style.display == "") {
-        menu.style.display = "none";
+    if (menu.style.display === "none") {
+        menu.style.display = "block";
         // button.innerHTML = "Show Menu";
     } else {
-        menu.style.display = "";
+        menu.style.display = "none";
         // button.innerHTML = "Hide Menu";
     }
 })
