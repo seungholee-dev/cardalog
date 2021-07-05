@@ -1,5 +1,5 @@
 from django.contrib.auth import login
-from .forms import UserRegisterForm, UserUpdateForm
+from .forms import ProfileUpdateForm, UserRegisterForm, ProfileUpdateForm
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -48,13 +48,13 @@ class MyLoginView(SuccessMessageMixin, LoginView):
 @login_required
 def profile(request):
 	if request.method == 'POST':
-		u_form = UserUpdateForm(request.POST, instance=request.user) # Instance will tell which instance we are working on
+		u_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile) # Instance will tell which instance we are working on
 		if u_form.is_valid():
 			u_form.save()
 			messages.success(request, f'Your account has been updated!')
 			return redirect('cardalog-home')
 	else:
-		u_form = UserUpdateForm(instance=request.user) # Instance will bring current user data
+		u_form = ProfileUpdateForm(instance=request.user) # Instance will bring current user data
 	
 	context = {
         'u_form': u_form,

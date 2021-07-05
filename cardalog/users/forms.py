@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.db import models
+from users.models import Profile
 from django import forms
 from django.db.models import fields
 from django_countries.fields import CountryField
@@ -17,9 +18,9 @@ class UserRegisterForm(UserCreationForm):
         model = User
         fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2', 'birth_date', 'gender', 'country']
 
-class UserUpdateForm(forms.ModelForm):
-    email = forms.EmailField()
-    image = forms.ImageField()
+class ProfileUpdateForm(forms.ModelForm):
+    # email = forms.EmailField()
+    # image = forms.ImageField()
     class Meta:
-        model = User
-        fields = ['image', 'email']
+        model = Profile
+        fields = ['image']
