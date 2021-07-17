@@ -16,9 +16,7 @@ let menu = document.getElementById("main-menu");
 document.getElementById("home-profile-img").addEventListener('click', function (e) {
     if (menu.style.display === "none") {
         menu.style.display = "block";
-        // button.innerHTML = "Show Menu";
     } else {
         menu.style.display = "none";
-        // button.innerHTML = "Hide Menu";
     }
 })

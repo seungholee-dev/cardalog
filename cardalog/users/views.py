@@ -42,7 +42,7 @@ class SignUpView(CreateView):
 class MyLoginView(SuccessMessageMixin, LoginView):
 	template_name = 'registration/login.html'
 	success_url = reverse_lazy('cardalog-home')
-	success_message = "Welcome back"
+	success_message = "Welcome back!"
 
 # Profile View (My Page)
 @login_required
