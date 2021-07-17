@@ -1,4 +1,7 @@
-from django.contrib.auth import login
+from django.contrib.auth import authenticate, login
+from django.http import response
+import json
+from django.http import HttpResponse
 from .forms import ProfileUpdateForm, UserRegisterForm, UserUpdateForm
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.models import User
@@ -43,6 +46,22 @@ class MyLoginView(SuccessMessageMixin, LoginView):
 	template_name = 'registration/login.html'
 	success_url = reverse_lazy('cardalog-home')
 	success_message = "Welcome back!"
+
+	def post(self, request, *args, **kwargs):
+		if request.is_ajax and request.method == "POST":
+			login_form = AuthenticationForm(request, request.POST)
+
+			if login_form.is_valid():
+				username = login_form.cleaned_data['username']
+				password = login_form.cleaned_data['password']
+				user = authenticate(username=username, password=password)
+				if user is not None:
+					login(request, user)
+					response_data = {'status': 'ok'}
+						
+			else:
+				response_data = {'status': 'Wrong credential'}
+		return response.HttpResponse(json.dumps(response_data), content_type='application/json')
 
 # Profile View (My Page)
 @login_required

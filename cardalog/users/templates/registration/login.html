@@ -1,3 +1,4 @@
+
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -26,7 +27,7 @@
                     {% endif %}
 
 
-                    <input type="submit" value="Login" class="btn btn-primary pull-right" />
+                    <input id="login-button" type="submit" value="Login" class="btn btn-primary pull-right" />
                     <input type="button" value="Close" class="btn btn-primary" data-dismiss="modal"/>
                     <input type="hidden" name="next" value="{{ next }}" />
                 </form>
@@ -34,4 +35,8 @@
             
         </div>
     </div>
+    
 </div>
+
+
+
