@@ -33,7 +33,6 @@ class SignUpView(CreateView):
 			user.profile.country = form.cleaned_data.get('country')
 			user.save()
 			messages.success(request, f'Your account has been created! You are now able to log in!')
-
 		return redirect('login')
 
 	# Dealing with Get requests
@@ -60,7 +59,7 @@ class MyLoginView(SuccessMessageMixin, LoginView):
 					response_data = {'status': 'ok'}
 						
 			else:
-				response_data = {'status': 'Wrong credential'}
+				response_data = {'status': 'Form is not valid'}
 		return response.HttpResponse(json.dumps(response_data), content_type='application/json')
 
 # Profile View (My Page)

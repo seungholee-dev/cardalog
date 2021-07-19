@@ -1,18 +1,22 @@
-{% if messages %}
-       {% for message in messages %}
-          <div class="row justify-content-end">
-             <div class="col-12 text-center">
-                 <div class="alert alert-{{message.tags}}">
-                         {{ message }}
-                 </div>
-              </div>
-           </div>
-        {% endfor %}
-   {% endif%}
 
-<h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign Up</button>
-  </form>
+<div class="modal fade" id="signUpModal" tabindex="-1">
+   <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Sign Up</h5>
+                
+            </div>
+            <div class="modal-body">
+               <form id="register-form" method="post" action="{% url 'register' %}">
+                  {% csrf_token %}
+                  {{ form }}
+                  
+
+                  <input id="register-button" type="submit" value="Create Account" class="btn btn-primary pull-right" />
+                  <input type="button" value="Close" class="btn btn-primary" data-dismiss="modal"/>
+                  <input type="hidden" name="next" value="{{ next }}"/>
+               </form>
+            </div>   
+         </div>
+   </div>
+</div>

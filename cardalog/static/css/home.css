@@ -41,3 +41,12 @@ body {
 .my-float{
 	margin-top:22px;
 }
+
+
+/*<============== Login Page ==============>*/
+#login-error-text {
+	text-align: center;
+	color: red;
+	font-size: small;
+	visibility: hidden;
+}

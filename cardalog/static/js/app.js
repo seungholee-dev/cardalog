@@ -15,10 +15,6 @@ $('#loginModal').ready(function(){
         var loginData = $(this).serialize();
         $.post(loginUrl, loginData).done(function(data){
 
-            // Did the registration work?
-            // As one idea, your you can set your view to return a JSON 
-            // object with a 'success' property that you can check here
-
             if (data.status == 'ok'){
             // print "success" on the html somewhere
                 console.log(data.status);
@@ -28,12 +24,14 @@ $('#loginModal').ready(function(){
 
             // Something is wrong with the credential
             } else {
-                console.log(data.status)
+                console.log(data.status);
+                $('#login-error-text').css('visibility', 'visible');
             }
         });
         e.preventDefault(); // This stops page reload
     });
 });
+
 
 
 

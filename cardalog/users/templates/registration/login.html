@@ -1,5 +1,5 @@
 
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="loginModal" tabindex="-1">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -19,12 +19,12 @@
                             <td><input id="id_password" name="password" type="password" class="form-control"></td>
                         </tr>
                     </table>
-                    {% if form.errors %}
-                        <p class=" label label-danger">
-                            Your username and password didn't match. 
-                            Please try again.
-                        </p>
-                    {% endif %}
+                    
+                    <p id="login-error-text" class="danger">
+                                Your username and password didn't match. 
+                                Please try again.
+                    </p>
+                    
 
 
                     <input id="login-button" type="submit" value="Login" class="btn btn-primary pull-right" />

@@ -55,7 +55,7 @@
                     
                 {% else %}
                     <form class="form-inline">
-                        <a href="{% url 'register' %}" class="btn btn-sm btn-success mr-3"  role="button">Sign Up</a>
+                        <a class="btn btn-sm btn-success mr-3" data-toggle="modal" data-target="#signUpModal" role="button">Sign Up</a>
                         <a class="btn btn-sm btn-info" data-toggle="modal" data-target="#loginModal" role="button">Log In</a>
                     </form>
                 {% endif %}
@@ -75,6 +75,9 @@
            </div>
         {% endfor %}
     {% endif%}
+
+    <!-- Form Modal for SignUp -->
+    {% include 'registration/register.html' with form=register_form%}
 
     <!-- Form Modal for LogIn -->
     {% include 'registration/login.html'%}
