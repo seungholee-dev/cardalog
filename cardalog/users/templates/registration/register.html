@@ -9,7 +9,7 @@
             <div class="modal-body">
                <form id="register-form" method="post" action="{% url 'register' %}">
                   {% csrf_token %}
-                  {{ form }}
+                  {{ form.as_p }}
                   
 
                   <input id="register-button" type="submit" value="Create Account" class="btn btn-primary pull-right" />
