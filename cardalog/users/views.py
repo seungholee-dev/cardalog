@@ -33,12 +33,12 @@ class SignUpView(CreateView):
 			user.profile.country = form.cleaned_data.get('country')
 			user.save()
 			messages.success(request, f'Your account has been created! You are now able to log in!')
-		return redirect('login')
+		return redirect('cardalog-home')
 
 	# Dealing with Get requests
-	def get(self, request, *args, **kwargs):
-		form = UserRegisterForm()
-		return render(request, 'registration/register.html', {'form': form})
+	# def get(self, request, *args, **kwargs):
+	# 	form = UserRegisterForm()
+	# 	return render(request, 'registration/register.html', {'form': form})
 
 # Custom LoginView
 class MyLoginView(SuccessMessageMixin, LoginView):
