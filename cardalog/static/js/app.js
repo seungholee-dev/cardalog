@@ -32,10 +32,7 @@ $('#loginModal').ready(function(){
     });
 });
 
-
-
-
-// Delete confirm for Set
+// Delete confirm for Global (Used in Set)
 function deleteConfirmPopUp() {
     let result = confirm('Are you sure you want to delete?');
     return result;

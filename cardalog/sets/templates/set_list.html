@@ -6,8 +6,36 @@
 
     {% if sets %}
         Count: {{ sets|length }}
-
+        <!-- Add, Edit, BulkEdit icon-->
         <div class="row">
+            <!-- Button Groups -->
+            <div class="btn-group col-md-6 ml-auto">
+                <!-- Add Button 2 Options: 1.  2. Quick Add -->
+                <div class="btn-group"> 
+                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" title="Add"><i class="fa fa-plus"></i></button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="dropdown-item">Slow Add</li>
+                        <li class="dropdown-item">Quick Add</li>
+                    </ul>
+                </div>
+                
+                <!-- Edit Button -->
+                <button class="btn btn-primary" title="Edit"><i class="fa fa-pencil"></i></button>
+
+                <!-- Favorite Button -->
+                <button class="btn btn-primary" title="Bookmarks"><i class="fa fa-star"></i></button>
+
+                <!-- Search UI -->
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- List of Sets -->
+        <div class="row">
+            <!-- Iterate through sets -->
             {% for set in sets %}
             <div class="col-lg-3 col-sm-6 col-xs-12">
                 <div class="card text-white border-info bg-dark mb-3">
