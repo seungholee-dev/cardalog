@@ -6,10 +6,17 @@
 
     {% if sets %}
         Count: {{ sets|length }}
+        <div class="row">
+            <!-- Search UI -->
+            <form class="form-inline ml-auto mb-2">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
         <!-- Add, Edit, BulkEdit icon-->
         <div class="row">
             <!-- Button Groups -->
-            <div class="btn-group col-md-6 ml-auto">
+            <div class="btn-group col-md-4 ml-auto pr-0 pl-0">
                 <!-- Add Button 2 Options: 1.  2. Quick Add -->
                 <div class="btn-group"> 
                     <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" title="Add"><i class="fa fa-plus"></i></button>
@@ -25,11 +32,7 @@
                 <!-- Favorite Button -->
                 <button class="btn btn-primary" title="Bookmarks"><i class="fa fa-star"></i></button>
 
-                <!-- Search UI -->
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+                
             </div>
         </div>
 
