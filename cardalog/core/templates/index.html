@@ -14,6 +14,10 @@
     <!-- Home CSS -->
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     
+    <!-- Extra CSS for child -->
+    {% block extra_css %}
+    {% endblock %}
+
     <title>Cardalog</title>
 </head>
 
@@ -108,6 +112,10 @@
     
     <!-- MyCustom JS -->
     <script src="{% static 'js/app.js' %}"></script>
+
+    <!-- Extra JS for child templates -->
+    {% block extra_js %}
+    {% endblock %}
 </body>
 
 </html>
