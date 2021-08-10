@@ -50,6 +50,7 @@
             <!-- Profile / LogOut / SignUp/ Login Button based on user auth state -->
             <div class='make-relative'>
                 {% if user.is_authenticated %}
+                    <button class="btn btn-dark" title="Notification"><i class="fa fa-bell"></i></button>
                     <img id="home-profile-img" src="{{ user.profile.image.url }}" alt='Home Profile Img'>
                     <ul id='main-menu'>
                         <li><a href="{% url 'profile' %}" class="btn btn-sm btn-info" role="button">Profile</a></li>
