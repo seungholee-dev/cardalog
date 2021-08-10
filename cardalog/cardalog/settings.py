@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'core.apps.CoreConfig',
+    'home.apps.HomeConfig',
     'cards.apps.CardsConfig',
     'sets.apps.SetsConfig',
     'django.contrib.admin',
@@ -65,6 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'core.context_processors.add_variable_to_context',
             ],
         },
     },
@@ -131,9 +133,11 @@ STATIC_URL = '/static/'
 # Custom Static files DIR
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "home/static"),
     os.path.join(BASE_DIR, "sets/static"),
     os.path.join(BASE_DIR, "users/static"),
-    os.path.join(BASE_DIR, "cards/static")
+    os.path.join(BASE_DIR, "cards/static"),
+    
 ]
 
 # Uploaded file directory where it will be saved (Uploading image etc)
