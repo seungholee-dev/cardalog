@@ -25,3 +25,4 @@ $('#authModal').ready(function(){
         e.preventDefault(); // This stops page reload
     });
 });
+

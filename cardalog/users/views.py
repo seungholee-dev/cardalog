@@ -15,7 +15,6 @@ from django.views.generic.edit import CreateView
 
 # Custom Sign Up View
 class SignUpView(CreateView):
-	template_name = 'registration/register.html'
 	success_url = reverse_lazy('login')
 	form_class = UserRegisterForm
 
@@ -35,14 +34,8 @@ class SignUpView(CreateView):
 			messages.success(request, f'Your account has been created! You are now able to log in!')
 		return redirect('cardalog-home')
 
-	# Dealing with Get requests
-	# def get(self, request, *args, **kwargs):
-	# 	form = UserRegisterForm()
-	# 	return render(request, 'registration/register.html', {'form': form})
-
 # Custom LoginView
 class MyLoginView(SuccessMessageMixin, LoginView):
-	template_name = 'registration/login.html'
 	success_url = reverse_lazy('cardalog-home')
 	success_message = "Welcome back!"
 
