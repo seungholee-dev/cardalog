@@ -14,9 +14,11 @@
     <!-- Home CSS -->
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     
+    <!-- Login CSS -->
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+
     <!-- Extra CSS for child -->
-    {% block extra_css %}
-    {% endblock %}
+    {% block extra_css %}{% endblock %}
 
     <title>Cardalog</title>
 </head>
@@ -60,8 +62,8 @@
                     
                 {% else %}
                     <form class="form-inline">
-                        <a class="btn btn-sm btn-success mr-3" data-toggle="modal" data-target="#signUpModal" role="button">Sign Up</a>
-                        <a class="btn btn-sm btn-info" data-toggle="modal" data-target="#loginModal" role="button">Log In</a>
+                        <!-- <a class="btn btn-sm btn-success mr-3" data-toggle="modal" data-target="#signUpModal" role="button">Sign Up</a> -->
+                        <a class="btn btn-sm btn-info" data-toggle="modal" data-target="#authModal" role="button">Log In</a>
                     </form>
                 {% endif %}
             </div>
@@ -82,10 +84,10 @@
     {% endif%}
 
     <!-- Form Modal for SignUp -->
-    {% include 'registration/register.html' with form=register_form%}
+    <!-- {% include 'registration/register.html' with form=register_form%} -->
 
     <!-- Form Modal for LogIn -->
-    {% include 'registration/login.html'%}
+    {% include 'registration/login.html' with form=register_form %}
 
     <!-- Template Inheritance -->
     <div class="container">
@@ -111,12 +113,15 @@
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     
-    <!-- MyCustom JS -->
+    <!-- MyCustom Global JS -->
     <script src="{% static 'js/index.js' %}"></script>
 
+    <!-- Custom Global login JS file -->
+    <script src="{% static 'js/login.js' %}"></script>
+
     <!-- Extra JS for child templates -->
-    {% block extra_js %}
-    {% endblock %}
+    {% block extra_js %}{% endblock %}
+
 </body>
 
 </html>

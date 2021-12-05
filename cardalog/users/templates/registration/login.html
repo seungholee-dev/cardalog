@@ -1,5 +1,6 @@
-<div class="modal fade" id="loginModal" tabindex="-1">
+<div class="modal fade" id="authModal" tabindex="-1">
     <div class="modal-dialog" role="document">
+        <!-- Login Modal -->
         <div class="modal-content">
             <div class="modal-header">
                 <h5>Login</h5>
@@ -24,19 +25,42 @@
                                 Please try again.
                     </p>
                     <div>
-                        <a href="{% %}">Need an Account?</a>
-                        <a>Forgot your password?</a>
+                        <label for="rememberMe">Remember Me</label>
+                        <input type="checkbox" id="rememberMe"/>
+                    </div>
+                    <div>
+                        <a href="#" class="" onclick="redirectToSignUp()">Not a member yet?</a>
+                        <a href="#" class="">Forgot your password?</a>
                     </div>
                     <input id="login-button" type="submit" value="Login" class="btn btn-primary pull-right" />
                     <input type="button" value="Close" class="btn btn-primary" data-dismiss="modal"/>
                     <input type="hidden" name="next" value="{{ next }}" />
                 </form>
             </div>
-            
         </div>
+
+        <!-- Sign Up Modal -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Sign Up</h5>
+                
+            </div>
+            <div class="modal-body">
+               <form id="register-form" method="post" action="{% url 'register' %}">
+                  {% csrf_token %}
+                  {{ form.as_p }}
+                  
+
+                  <input id="register-button" type="submit" value="Create Account" class="btn btn-primary pull-right" />
+                  <input type="button" value="Close" class="btn btn-primary" data-dismiss="modal"/>
+                  <input type="hidden" name="next" value="{{ next }}"/>
+               </form>
+            </div>   
+         </div>
     </div>
     
 </div>
+
 
 
 
