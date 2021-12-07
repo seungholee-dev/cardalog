@@ -1,9 +1,9 @@
 from django.contrib.auth import authenticate, login
 from django.http import response
 import json
-from django.http import HttpResponse
+from django.contrib.auth.forms import PasswordResetForm
 from .forms import ProfileUpdateForm, UserRegisterForm, UserUpdateForm
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, PasswordResetView
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
@@ -54,6 +54,17 @@ class MyLoginView(SuccessMessageMixin, LoginView):
 			else:
 				response_data = {'status': 'Form is not valid'}
 		return response.HttpResponse(json.dumps(response_data), content_type='application/json')
+
+# Custom PasswordResetView
+class PasswordResetView(PasswordResetView):
+	def post(self, request, *args, **kwargs):
+		password_reset_form = PasswordResetForm(request.POST)
+		if password_reset_form.is_valid():
+			return "Hello"
+		else:
+			password_reset_form = PasswordResetForm()
+			return render(request=request, template_name='password_reset/password_reset.html', context={'password_reset_form': password_reset_form})
+		
 
 # Profile View (My Page)
 @login_required
