@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate, login
 from django.http import response, HttpResponse
 from django.contrib.auth.forms import PasswordResetForm
 from .forms import ProfileUpdateForm, UserRegisterForm, UserUpdateForm
-from django.contrib.auth.views import LoginView, PasswordResetView
+from django.contrib.auth.views import LoginView, PasswordResetView, PasswordResetDoneView, PasswordResetCompleteView
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
@@ -94,6 +94,19 @@ class PasswordResetView(PasswordResetView):
 			password_reset_form = PasswordResetForm()
 			return render(request=request, template_name='password/password_reset.html', context={'form': password_reset_form})
 
+# Custom PasswordResetDoneView
+class PasswordResetDoneView(SuccessMessageMixin, PasswordResetDoneView):
+	def get(self, request, *args, **kargs):
+		messages.success(request, f'Email has been sent! See you there! :)')
+		return redirect('cardalog-home')
+
+
+# Custom PasswordResetCompleteView
+class PasswordResetCompleteView(SuccessMessageMixin ,PasswordResetCompleteView):
+	def post(self, request, *args, **kargs):
+		return redirect('cardalog-home')
+	def get(self, request, *args, **kargs):
+		return redirect('cardalog-home')
 
 # Profile View (My Page)
 @login_required
