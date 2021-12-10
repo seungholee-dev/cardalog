@@ -146,3 +146,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # URL for browser how to access that Media above
 MEDIA_URL = '/media/'
+
+# Configure for sending emails
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
