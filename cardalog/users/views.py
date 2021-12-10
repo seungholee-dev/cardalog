@@ -1,5 +1,5 @@
 import json
-from django.core.mail import send_mail, BadHeaderError
+from django.core.mail import message, send_mail, BadHeaderError
 from django.utils.http import urlsafe_base64_encode
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
@@ -103,9 +103,8 @@ class PasswordResetDoneView(SuccessMessageMixin, PasswordResetDoneView):
 
 # Custom PasswordResetCompleteView
 class PasswordResetCompleteView(SuccessMessageMixin ,PasswordResetCompleteView):
-	def post(self, request, *args, **kargs):
-		return redirect('cardalog-home')
 	def get(self, request, *args, **kargs):
+		messages.success(request, f'Your Password has been updated! Please login again! :D')
 		return redirect('cardalog-home')
 
 # Profile View (My Page)
