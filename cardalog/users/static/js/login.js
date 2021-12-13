@@ -10,7 +10,6 @@ $('#authModal').on('hidden.bs.modal', function () {
 
 // Login Modal (AJAX) Login request
 $("#authModal").ready(function () {
-
     // On form submit, do ajax instead
     $("#login-form").submit(function (e) {
         var loginUrl = $(this).attr("action");
@@ -32,7 +31,6 @@ $("#authModal").ready(function () {
         e.preventDefault(); // This stops page reload
     });
 
-
     modalInitialSetUp();
 
     // Toggle Sign up text
@@ -48,9 +46,14 @@ $("#authModal").ready(function () {
     });
 
     // Reset Email button
-    $("#resetButton").click(function (e) {
-        $("#resetButton").text("Return to Login");
-    })
+    $("#resetForm").submit(function (e) {
+        var resetUrl = $(this).attr("action");
+        var resetEmail = $(this).serialize();
+        // console.log(resetEmail)
+        // $.post(resetUrl, resetEmail).done(function (data) {
+        //     console.log(data);
+        // })
+    });
 });
 
 // Initial visibility set ups for Login / SignUp Modals

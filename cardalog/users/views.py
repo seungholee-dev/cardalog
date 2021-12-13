@@ -65,7 +65,7 @@ class MyLoginView(SuccessMessageMixin, LoginView):
 
 
 # Custom PasswordResetView
-class PasswordResetView(PasswordResetView):
+class PasswordResetView(SuccessMessageMixin, PasswordResetView):
 	def post(self, request, *args, **kwargs):
 		password_reset_form = PasswordResetForm(request.POST)
 		if password_reset_form.is_valid():
@@ -91,8 +91,8 @@ class PasswordResetView(PasswordResetView):
 			return redirect('password_reset_done')		
 		# If form was not valide, empty the form and reset the page	
 		else:
-			password_reset_form = PasswordResetForm()
-			return render(request=request, template_name='password/password_reset.html', context={'form': password_reset_form})
+			messages.warning(request, f'Email doesn\'t exist or there has been an error')
+			return redirect('cardalog-home')
 
 # Custom PasswordResetDoneView
 class PasswordResetDoneView(SuccessMessageMixin, PasswordResetDoneView):
